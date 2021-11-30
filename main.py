@@ -17,9 +17,9 @@ def cb_page_getter():
         name = dt.find('Name').text
         xmlDict[code.lower()] = vle + " " + nom + " " + name
     if inp[0] == '-codes':
-        for cd in tree.findall('Valute'):
-            code = cd.find('CharCode').text
-            name = cd.find('Name').text
+        for cde in tree.findall('Valute'):
+            code = cde.find('CharCode').text
+            name = cde.find('Name').text
             codeDict[code] = name
         return print(codeDict)
     string = xmlDict[inp[0].lower()].split()
