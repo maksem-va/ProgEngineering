@@ -3,9 +3,9 @@ from xml.etree import ElementTree
 import requests
 
 
-def cb_page_getter():
+def cb_page_getter(req):
+    inp = req.split()
     url = 'http://www.cbr.ru/scripts/XML_daily.asp'
-    inp = input('Input request. "-faq" for additional information. ').split()
     page = requests.get(url)
     tree = ElementTree.fromstring(page.content)
     xmlDict = {}
@@ -31,4 +31,5 @@ def cb_page_getter():
 
 
 if __name__ == '__main__':
-    cb_page_getter()
+    requ = input('Input request. "-faq" for additional information. ')
+    cb_page_getter(requ)
